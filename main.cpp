@@ -20,6 +20,7 @@ int main() {
     cout << "ENTRA EL DIGIT DE LA MALA SORT:" << endl;
     cin >> digit;
   } while(digit > 9 or digit < 0);
-  cout << "VALOR FINAL:" << endl << bad_luck(number, digit) << endl;
+  if (number == 0 and digit == 0) cout << "VALOR FINAL:" << endl << "0" << endl;
+  else cout << "VALOR FINAL:" << endl << bad_luck(number, digit) << endl;
   return 0;
 }

@@ -3,7 +3,7 @@
 using namespace std;
 
 long long bad_luck(long long number, int digit) {
-  if (number == 0) return number;
+  if (number == 0 && digit != 0) return 0;
 
   int ultim = number % 10;
   
@@ -29,10 +29,12 @@ int main() {
   
   long long result = bad_luck(number, digit);
   
-  if (result == 0) 
-    cout << "VALOR FINAL:" << endl;
-  else 
+  if (result != 0) 
     cout << "VALOR FINAL:" << endl << result << endl;
-  
+  else if (number == 0 && digit != 0)
+    cout << "VALOR FINAL:" << endl << 0 << endl;
+  else
+    cout << "VALOR FINAL:" << endl;
+
   return 0;
 }

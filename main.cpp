@@ -3,7 +3,7 @@
 using namespace std;
 
 long long bad_luck(long long number, int digit) {
-  if (number == 0 && digit != 0) return 0;
+  if (number == 0) return number;
 
   int ultim = number % 10;
   

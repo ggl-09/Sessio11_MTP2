@@ -2,25 +2,37 @@
 
 using namespace std;
 
-int bad_luck(long long number, int digit) {
+long long bad_luck(long long number, int digit) {
   if (number == 0) return number;
+
   int ultim = number % 10;
-  if (ultim == digit) return bad_luck(number / 10, digit);
-  return bad_luck(number / 10, digit) * 10 + ultim;
+  
+  if (ultim == digit)
+    return bad_luck(number / 10, digit);
+  else
+    return bad_luck(number / 10, digit) * 10 + ultim;
 }
 
 int main() {
   long long number;
   int digit;
+  
   do {
     cout << "ENTRA UN ENTER NO NEGATIU:" << endl;
     cin >> number;
   } while (number < 0);
+  
   do {
     cout << "ENTRA EL DIGIT DE LA MALA SORT:" << endl;
     cin >> digit;
   } while(digit > 9 or digit < 0);
-  if (bad_luck(number, digit) == 0) cout << "VALOR FINAL:";
-  else cout << "VALOR FINAL:" << endl << bad_luck(number, digit) << endl;
+  
+  long long result = bad_luck(number, digit);
+  
+  if (result == 0) 
+    cout << "VALOR FINAL:" << endl;
+  else 
+    cout << "VALOR FINAL:" << endl << result << endl;
+  
   return 0;
 }
